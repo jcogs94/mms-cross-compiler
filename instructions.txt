@@ -15,6 +15,12 @@ For compiling a single file:
 	(ex. "./crossCompileFile.sh test.c outputExecutable")
 
 NOTES:
+- The "install.sh" only needs to be run once for either MAKEFILE or single file. It
+  does not need to be run for each (if using both). Only the "buildImage.sh" and their
+  respective "crossCompile*.sh" files are different. Each "buildImage.sh" script builds
+  a separate Docker image that can be run later and that image will remain on your machine
+- Once the "install.sh" and "buildImage.sh" scripts have been built, they do not need
+  to be run again. Only the "crossCompile*.sh" script needs to be run
 - The script for cross-compiling a single file can also be copied elsewhere, but will
   still need to be passed the input and output file paths
 - Compiling with MAKEFILE has not yet been tested and will most likely need more
