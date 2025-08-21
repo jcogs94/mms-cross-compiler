@@ -1,0 +1,21 @@
+For compiling with a MAKEFILE:
+1. Run "install.sh"
+2. Run "buildImage.sh"
+3. Copy "crossCompile.sh" to your project directory that includes the MAKEFILE
+	(the "crossCompile.sh" script should be in the same place that you would
+	  normally run the "make" command in)
+4. Run "crossCompile.sh" script
+
+For compiling a single file:
+1. Run "install.sh"
+2. Run "cd" command into the "single-file" directory
+3. Run "buildImage.sh"
+4. Run "crossCompileFile.sh" script and pass the name of the file you want compiled
+	first and then the name of the output file
+	(ex. "./crossCompileFile.sh test.c outputExecutable")
+
+NOTES:
+- The script for cross-compiling a single file can also be copied elsewhere, but will
+  still need to be passed the input and output file paths
+- Compiling with MAKEFILE has not yet been tested and will most likely need more
+  libraries added to the Dockerfile dependancies install

@@ -16,7 +16,7 @@ echo "Compiling C file using mms-cross-compiler image..."
 
 # Run the Docker image. This will use the image already built to copy the files
 # into the image, compile them, and spit out the result before closing
-docker run --rm --platform linux/arm/v7 -v $(pwd):/mms mms-cross-compiler
+docker run --rm --platform linux/arm/v7 -v $(pwd):/mms mms-single-file-cross-compiler "$1" -o "$2"
 
 echo -e "Cross-compilation successful!"
 

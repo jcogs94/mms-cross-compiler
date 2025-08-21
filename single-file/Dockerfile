@@ -10,5 +10,5 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /mms
 
 # Call gcc when the container runs
-ENTRYPOINT ["make"]
+ENTRYPOINT ["gcc"]
 
