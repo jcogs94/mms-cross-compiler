@@ -2,24 +2,46 @@
 
 echo -e "\nInstalling all MMS Cross Compiler dependencies!\n"
 
-# Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
+set -euo pipefail
+
+# Detect distribution
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    DISTRO=$ID
+    VERSION=$VERSION_CODENAME
+else
+    echo "Cannot detect OS. Exiting."
+    exit 1
+fi
+
+echo "Detected distribution: $DISTRO ($VERSION)"
+
+# Remove old versions if present
+sudo apt-get remove -y docker docker-engine docker.io containerd runc || true
+
+# Update apt
+sudo apt-get update -y
+sudo apt-get install -y ca-certificates curl gnupg lsb-release
+
+# Add Docker’s official GPG key
 sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+curl -fsSL https://download.docker.com/linux/${DISTRO}/gpg | \
+    sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-# Add Docker's repository to Apt sources:
+# Set up the repository dynamically
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/${DISTRO} ${VERSION} stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
 
-# Install Docker packages
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# Install Docker Engine
+sudo apt-get update -y
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-echo -e "\n\nDocker successfully installed!\n\n"
+echo -e "\n\nDocker successfully installed! Version installed:"
+docker --version
+echo -e "\n\n"
 
 # Install QEMU to allow Docker to emulate ARM instructions
 sudo apt-get update
