@@ -4,22 +4,22 @@
 
 1. Run "installAll.sh" script in the project root
     - This should only need to be run once and should show "mms-cross-compiler" and "mms-single-file-cross-compiler" images listed just before the end of the script
-    ``sudo ./installAll.sh``
+> ``sudo ./installAll.sh``
 2. Follow the instructions for compiling based on your needs below
 
 ## For compiling with a MAKEFILE:
 
 1. Copy "crossCompile.sh" to your project directory that includes the MAKEFILE (the "crossCompile.sh" script should be in the same place that you would normally run the "make" command in)
-    ``cp crossCompile.sh /path/to/dir/with/makefile/crossCompile.sh``
+> ``cp crossCompile.sh /path/to/dir/with/makefile/crossCompile.sh``
 2. Run "crossCompile.sh" script
-    ``sudo /path/to/dir/with/makefile/crossCompile.sh``
+> ``sudo /path/to/dir/with/makefile/crossCompile.sh``
 
 ## For compiling a single file:
 
 1. Run "cd" command into the "single-file" directory
-    ``cd single-file``
+> ``cd single-file``
 2. Run "crossCompileFile.sh" script and pass the name of the file you want compiled first and then the name of the output file
-    ``sudo ./crossCompileFile.sh test.c testOutput"``
+> ``sudo ./crossCompileFile.sh test.c testOutput"``
 
 ## Manually Installing Necessary Dependencies:
 
