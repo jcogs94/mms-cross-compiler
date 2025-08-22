@@ -6,5 +6,5 @@ echo -e "Compiling C program to ARM binary using mms-cross-compiler image...\n"
 # into the image, compile them, and spit out the result before closing
 docker run --rm --platform linux/arm/v7 -v $(pwd):/mms mms-cross-compiler
 
-echo -e "Cross-compilation successful!"
+echo -e "\nCross-compilation successful!"
 
