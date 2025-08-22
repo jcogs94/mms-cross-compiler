@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "\nInstalling all MMS Cross Compiler dependencies!\n"
+
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -17,13 +19,13 @@ sudo apt-get update
 # Install Docker packages
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-echo -e "\n\nDocker successfully installed!"
+echo -e "\n\nDocker successfully installed!\n\n"
 
 # Install QEMU to allow Docker to emulate ARM instructions
 sudo apt-get update
 sudo apt-get install qemu-user-static binfmt-support
 
-echo -e "\n\nQEMU successfully installed!"
+echo -e "\n\nQEMU successfully installed!\n\n"
 
 # Tell Docker to use buildx to create a new "builder instance" to use for builds
 docker buildx create --use
@@ -31,5 +33,5 @@ docker buildx create --use
 # Tell new "builder instance" to download necessary drivers/qemu binaries and list available platforms
 docker buildx inspect --bootstrap
 
-echo -e "\n\nSucess!"
+echo -e "\n\nMMS Cross Compiler dependencies installed sucessfully!"
 

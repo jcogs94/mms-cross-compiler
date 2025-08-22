@@ -1,18 +1,6 @@
 #!/bin/bash
 
-# Ensure input file path is passed as argument
-if [[ "$1" == "" ]]; then
-	echo "No path provided for the file that needs compiling. Rerun this script with two paths..."
-	exit 1
-fi
-
-# Ensure output file path is passed as argument
-if [[ "$2" == "" ]]; then
-	echo "No path provided for the output file. Rerun this script with a two paths..."
-	exit 1
-fi
-
-echo "Compiling C file using mms-cross-compiler image..."
+echo "Compiling C program to ARM binary using mms-cross-compiler image..."
 
 # Run the Docker image. This will use the image already built to copy the files
 # into the image, compile them, and spit out the result before closing

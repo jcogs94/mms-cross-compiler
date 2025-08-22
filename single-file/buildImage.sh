@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\nBuilding MMS Cross Single File Compiler Docker image...\n"
+echo -e "\nBuilding Docker Image for MMS Single File Cross Compiler...\n"
 
 docker buildx build --platform linux/arm/v7 -t mms-single-file-cross-compiler . --load
 
