@@ -19,7 +19,7 @@ For compiling with a MAKEFILE:
 
 For compiling a single file:
 1. Run "cd" command into the "single-file" directory
-4. Run "crossCompileFile.sh" script and pass the name of the file you want compiled
+2. Run "crossCompileFile.sh" script and pass the name of the file you want compiled
    first and then the name of the output file
      (ex. "./crossCompileFile.sh test.c testOutput")
 
