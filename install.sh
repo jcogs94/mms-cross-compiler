@@ -26,7 +26,7 @@ sudo apt-get install -y ca-certificates curl gnupg lsb-release
 # Add Docker’s official GPG key
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/${DISTRO}/gpg | \
-    sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo gpg -y --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 # Set up the repository dynamically
