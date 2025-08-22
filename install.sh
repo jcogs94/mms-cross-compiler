@@ -46,6 +46,7 @@ echo -e "\n\n"
 # Install QEMU to allow Docker to emulate ARM instructions
 sudo apt-get update
 sudo apt-get install -y qemu-user-static binfmt-support
+sudo apt autoremove -y
 
 echo -e "\n\nQEMU successfully installed!\n\n"
 
