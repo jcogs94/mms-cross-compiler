@@ -19,7 +19,7 @@
 1. Run "cd" command into the "single-file" directory
 > ``cd single-file``
 2. Run "crossCompileFile.sh" script and pass the name of the file you want compiled first and then the name of the output file
-> ``sudo ./crossCompileFile.sh test.c testOutput"``
+> ``sudo ./crossCompileFile.sh test.c testOutput``
 
 ## Manually Installing Necessary Dependencies:
 
