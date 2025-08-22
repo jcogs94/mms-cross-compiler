@@ -26,7 +26,7 @@ sudo apt-get install -y ca-certificates curl gnupg lsb-release
 # Add Docker’s official GPG key
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/${DISTRO}/gpg | \
-    sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo gpg --yes --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 # Set up the repository dynamically
@@ -45,7 +45,7 @@ echo -e "\n\n"
 
 # Install QEMU to allow Docker to emulate ARM instructions
 sudo apt-get update
-sudo apt-get install qemu-user-static binfmt-support
+sudo apt-get install -y qemu-user-static binfmt-support
 
 echo -e "\n\nQEMU successfully installed!\n\n"
 
