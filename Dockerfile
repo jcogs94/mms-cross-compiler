@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 # Include the tar files that the individual modules need for dependencies
 WORKDIR /
-COPY ./dependencies/vm.tar vm.tar
+COPY ./lib/vm.tar vm.tar
 RUN tar -xvf vm.tar && rm vm.tar
 
 # Set where to run the compilation
