@@ -12,11 +12,11 @@ if [[ "$2" == "" ]]; then
 	exit 1
 fi
 
-echo "Compiling C file to ARM binary using mms-cross-compiler image..."
+echo -e "Compiling C file to ARM binary using mms-cross-compiler image...\n"
 
 # Run the Docker image. This will use the image already built to copy the files
 # into the image, compile them, and spit out the result before closing
 docker run --rm --platform linux/arm/v7 -v $(pwd):/mms mms-single-file-cross-compiler "$1" -o "$2"
 
-echo -e "Cross-compilation successful!"
+echo -e "\nCross-compilation successful!"
 
